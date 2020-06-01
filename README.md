@@ -78,4 +78,4 @@ Any visual using data only from the aggregated table (population by year) will b
 
 ## Additional resources
 - [Azure Synapse Analytics (workspace preview)](https://docs.microsoft.com/en-gb/azure/synapse-analytics/overview-what-is)
-- [Power BI Aggregations] (https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-aggregations)
+- [Power BI Aggregations](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-aggregations)
