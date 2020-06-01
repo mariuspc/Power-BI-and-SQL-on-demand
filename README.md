@@ -10,17 +10,17 @@ As a quick refresher, SQL on-demand is defined by the Microsoft documentation as
 I will also note that the documentation identifies the logical data warehouse (a relational abstraction on top of raw or disparate data without relocating and transforming data, allowing always up-to-date view of your data) as a suitable scenario for the SQL on-demand, which fits in great with the scenarios below: 
 
 ## 1. Power BI datasets directly on top of the data lake 
-![Scenario 1 diagram](images/scenario-1.jpg)
+![Scenario 1 diagram](images/scenario-1.JPG)
 
 <tutorial to follow>
 
 ## 2. Power BI 2-part aggregation: cached dataset > SQL on-demand
-<insert diagram>
+![Scenario 2 diagram](images/scenario-2.JPG)
 
 <tutorial to follow>
 
 ## 3. Power BI 3-part aggregation: cached dataset > SQL Pool > SQL on-demand
-<insert diagram>
+![Scenario 3 diagram](images/scenario-3.JPG)
   
 <tutorial to follow>
   
