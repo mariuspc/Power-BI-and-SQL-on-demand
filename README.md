@@ -28,7 +28,7 @@ Refresh a Power BI dataset directly from the data lake, using SQL on-demand. Thi
 
 ![SQL on-demand endpoint](images/SQLondemandEndpoint.JPG)
 
-**Step 5**: start Power BI Desktop and create a connection to Azure SQL Database. Enter the SQL on-demand endpoint name as the server name, then the database name and Import as the connectivity option.
+**Step 5**: start Power BI Desktop and create a connection to Azure SQL Database. Enter the SQL on-demand endpoint name as the server name, then the database name and **Import** as the connectivity option.
 
 ![connect from Power BI](images/PBI-connect.JPG)
 
@@ -47,10 +47,35 @@ Refresh a Power BI dataset directly from the data lake, using SQL on-demand. Thi
 ## 2. Power BI 2-part aggregation: cached dataset > SQL on-demand
 ![Scenario 2 diagram](images/scenario-2.JPG)
 
-<tutorial to follow>
+Create a Power BI dataset that will cache the summarized data in memory, and drill down to the SQL on-demand query service for the detailed data. In this case, most user queries should hit the cache, but the on-demand query engine will support the ocasional dill-down analysis.  This scenario does not need a pre-provisioned SQL Pool (previously known as SQL Data Warehouse).
+
+
+**Step 1** to **Step 4** are identical to scenario 1. 
+
+**Step 5**: start Power BI Desktop and create a connection to Azure SQL Database. Enter the SQL on-demand endpoint name as the server name, then the database name and **Direct Query** as the connectivity option.
+
+![connect from Power BI DQ](images/PBI-connect-DQ.JPG)
+
+**Step 6**: create an aggregate table and set it as **Import** in Power BI. In this example, I will create an aggregate table that groups the population number by year. Please note that only the aggregate table should be cached. 
+
+![Power BI aggregate](images/PBI-agg.JPG)
+
+**Step 7**: mark the aggregate table as aggregare via the manage aggregations option in Power BI.
+
+![Power BI aggregate 2](images/PBI-agg2.JPG)
+
+Any visual using data only from the aggregated table (population by year) will be served from memory. Any visual using data fields that are not present in the aggregated table (population by country_name) will be served by the SQL on-demand query service. 
+
+![Power BI query 1](images/PBI-query-1.JPG)
+
+![Power BI query 2](images/PBI-query-2.JPG)
+
 
 ## 3. Power BI 3-part aggregation: cached dataset > SQL Pool > SQL on-demand
 ![Scenario 3 diagram](images/scenario-3.JPG)
   
-<tutorial to follow>
-  
+*tutorial to follow*
+
+## Additional resources
+- [Azure Synapse Analytics (workspace preview)](https://docs.microsoft.com/en-gb/azure/synapse-analytics/overview-what-is)
+- [Power BI Aggregations] (https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-aggregations)
