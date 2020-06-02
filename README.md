@@ -1,6 +1,6 @@
 # Power BI and SQL on-demand
 
-Several new features of Azure Synapse Analytics just entered public preview, but for me the most interesting by far is the new [SQL on-demand](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/on-demand-workspace-overview). In this post I am simply exploring some of the potential scenarios this new capability unlocks. 
+Several new features of Azure Synapse Analytics have just entered public preview, and for me the most interesting by far is the new [SQL on-demand](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/on-demand-workspace-overview). In this post I am simply exploring some of the potential scenarios this new capability unlocks. 
 
 As a quick refresher, SQL on-demand is defined by the Microsoft documentation as "a query service over the data in your data lake. It enables you to access your data through the following functionalities:
 * A familiar T-SQL syntax to query data in place without the need to copy or load data into a specialized store.
@@ -11,7 +11,7 @@ I will note that the documentation identifies the logical data warehouse (a rela
 ## 1. Power BI datasets directly on top of the data lake 
 ![Scenario 1 diagram](images/scenario-1.JPG)
 
-Refresh a Power BI dataset directly from the data lake, using SQL on-demand. This scenario does not need a pre-provisioned SQL Pool (previously known as SQL Data Warehouse) and relies on the SQL on-demand query service for the compute needed to refresh the Power BI dataset. 
+Refresh a Power BI dataset directly from the data lake, using SQL on-demand. This scenario does not need a provisioned SQL Pool (previously known as SQL Data Warehouse) and relies on the SQL on-demand query service for the compute needed to refresh the Power BI dataset. 
 
 **Step 1**: create an Azure Synapse Analytics workspace. As the SQL on-demand feature is still in preview at the time of this writing, make sure you select the Azure Synapse Analytics (workspace preview) version.
 
@@ -19,11 +19,11 @@ Refresh a Power BI dataset directly from the data lake, using SQL on-demand. Thi
 
 ![Synapse Studio](images/synapseStudio.JPG)
 
-**Step 3**: using the SQL on-demand engine, create a view over data stored in the udnerlying data lake. In this example, I am creating a view called vPopulation in a database called onDemandDB, exposing population data from a sample storage account. If you want to follow along, or get more details on how this is done, please follow [this tutorial] (https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/query-single-csv-file)(also make sure to also run the setup script in the tutorial).
+**Step 3**: using the SQL on-demand engine, create a view over data stored in the underlying data lake. In this example, I am creating a view called vPopulation in a database called onDemandDB, exposing population data from a sample storage account. If you want to follow along, or get more details on how this is done, please refer to [this tutorial] (https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/query-single-csv-file)(make sure to run the setup script in the tutorial).
 
 ![view population](images/vPopulation.JPG)
   
-**Step 4**: go back to the Overview blade of your Synapse Workspace (in the Azure portal, outside of the Synapse Studio), and note down the name of the SQL on-demand endpoint. 
+**Step 4**: go back to the Overview blade of your Synapse Workspace (in the Azure portal, outside of the Synapse Studio), and take note of the name of the SQL on-demand endpoint. 
 
 ![SQL on-demand endpoint](images/SQLondemandEndpoint.JPG)
 
@@ -46,7 +46,7 @@ Refresh a Power BI dataset directly from the data lake, using SQL on-demand. Thi
 ## 2. Power BI 2-part aggregation: cached dataset > SQL on-demand
 ![Scenario 2 diagram](images/scenario-2.JPG)
 
-Create a Power BI dataset that will cache the summarized data in memory, and drill down to the SQL on-demand query service for the detailed data. In this case, most user queries should hit the cache, but the on-demand query engine will support the ocasional dill-down analysis.  This scenario does not need a pre-provisioned SQL Pool (previously known as SQL Data Warehouse).
+Create a Power BI dataset that will cache the summarized data in memory, and drill down to the SQL on-demand query service for the detailed data. In this case, most user queries should hit the cache, but the on-demand query engine will support the occasional dill-down analysis.  This scenario does not need a provisioned SQL Pool (previously known as SQL Data Warehouse).
 
 
 **Step 1** to **Step 4** are identical to scenario 1. 
@@ -59,7 +59,7 @@ Create a Power BI dataset that will cache the summarized data in memory, and dri
 
 ![Power BI aggregate](images/PBI-agg.JPG)
 
-**Step 7**: mark the aggregate table as aggregare via the manage aggregations option in Power BI.
+**Step 7**: mark the aggregate table as aggregate via the manage aggregations option in Power BI.
 
 ![Power BI aggregate 2](images/PBI-agg2.JPG)
 
