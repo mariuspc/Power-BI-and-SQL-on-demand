@@ -1,12 +1,12 @@
 # Power BI and SQL on-demand
 
-Several new features of Azure Synapse Analytics have just entered public preview, and for me the most interesting by far is the new [SQL on-demand](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/on-demand-workspace-overview). In this post I am simply exploring some of the potential scenarios this new capability unlocks. 
+Several new features of Azure Synapse Analytics have just entered public preview, and for me the most interesting by far is the new [SQL on-demand](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/on-demand-workspace-overview). In this post I am simply exploring several potential scenarios this new capability unlocks. 
 
 As a quick refresher, SQL on-demand is defined by the Microsoft documentation as: *a query service over the data in your data lake. It enables you to access your data through the following functionalities:*
  - *A familiar T-SQL syntax to query data in place without the need to copy or load data into a specialized store.*
  - *Integrated connectivity via the T-SQL interface that offers a wide range of business intelligence and ad-hoc querying tools, including the most popular drivers.*
 
-I will note that the documentation identifies the logical data warehouse (a relational abstraction on top of raw or disparate data without relocating and transforming data, allowing always up-to-date view of your data) as a suitable scenario for the SQL on-demand, which greatly fits in with the scenarios below: 
+I will note that the documentation defines the logical data warehouse (a relational abstraction on top of raw or disparate data without relocating and transforming data, allowing always up-to-date view of your data) as a suitable scenario for the SQL on-demand, which greatly fits in with the scenarios below: 
 
 ## 1. Power BI datasets directly on top of the data lake 
 ![Scenario 1 diagram](images/scenario-1.JPG)
