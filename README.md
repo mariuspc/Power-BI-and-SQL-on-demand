@@ -46,7 +46,7 @@ Refresh a Power BI dataset directly from the data lake, using SQL on-demand. Thi
 ## 2. Power BI 2-part aggregation: cached dataset > SQL on-demand
 ![Scenario 2 diagram](images/scenario-2.JPG)
 
-Create a Power BI dataset that will cache the summarized data in memory, and drill down to the SQL on-demand query service for the detailed data. In this case, most user queries should hit the cache, but the on-demand query engine will support the occasional drill-down.  This scenario does not need a provisioned SQL Pool (previously known as SQL Data Warehouse).
+Create a Power BI dataset that will cache the summarized data in memory, and drill-down to the SQL on-demand query service for the detailed data. In this case, most user queries should hit the cache, but the on-demand query engine will support the occasional drill-down.  This scenario does not need a provisioned SQL Pool (previously known as SQL Data Warehouse).
 
 
 **Step 1** to **Step 4** are identical to scenario 1. 
